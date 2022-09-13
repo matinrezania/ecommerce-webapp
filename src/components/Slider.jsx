@@ -8,7 +8,7 @@ const Container = styled.div`
     height: calc(100vh - 85px);
     display: flex;
     position: relative;
-    //overflow: hidden;
+    overflow: hidden;
 `;
 
 const Arrow = styled.button`
@@ -104,9 +104,9 @@ const Slider = () => {
             </Arrow>
             <Wrapper slideIndex={slideIndex}>
                 {sliderItems.map((item) => (
-                    <Slide bg={item.bg}>
+                    <Slide bg={item.bg} key={item.id}>
                         <ImageContainer>
-                            <Image src={item.img} />
+                            <Image src={item.image} />
                         </ImageContainer>
                         <InfoContainer>
                             <Info>

@@ -1,7 +1,7 @@
 export const sliderItems = [
     {
         id: 1,
-        img: "https://source.unsplash.com/6wWiZlA2n0Q",
+        image: "images/1.jpg",
         title: "SUMMER SALE",
         desc: `Lorem, ipsum dolor sit amet consectetur
 adipisicing elit. Et tempore laudantium porro,
@@ -12,7 +12,7 @@ maiores assumenda libero!`,
     },
     {
         id: 2,
-        img: "https://source.unsplash.com/W6N869esmYM",
+        image: "images/2.jpg",
         title: "RECENT SALE",
         desc: `Lorem, ipsum dolor sit amet consectetur
 adipisicing elit. Et tempore laudantium porro,
@@ -23,7 +23,7 @@ maiores assumenda libero!`,
     },
     {
         id: 3,
-        img: "https://source.unsplash.com/rdw3Zr7J9bo",
+        image: "images/3.jpg",
         title: "SEASONAL SALE",
         desc: `Lorem, ipsum dolor sit amet consectetur
 adipisicing elit. Et tempore laudantium porro,
@@ -34,7 +34,7 @@ maiores assumenda libero!`,
     },
     {
         id: 4,
-        img: "https://source.unsplash.com/vp9mRauo68c",
+        image: "images/4.jpg",
         title: "WINTER SALE",
         desc: `Lorem, ipsum dolor sit amet consectetur
 adipisicing elit. Et tempore laudantium porro,
@@ -43,4 +43,29 @@ consectetur culpa eaque beatae iste, aut qui
 maiores assumenda libero!`,
         bg: "FEF9F7",
     },
+];
+
+export const categories = [
+    { id: 1, image: "images/5.jpg", title: "SHOES" },
+    {
+        id: 2,
+        image: "images/6.jpg",
+        title: "LEATHER COAT",
+    },
+    {
+        id: 3,
+        image: "images/7.jpg",
+        title: "BAGS AND STUFF!",
+    },
+];
+
+export const popularProducts = [
+    { id: 1, image: "images/8.jpg" },
+    { id: 2, image: "images/9.jpg" },
+    { id: 3, image: "images/10.jpg" },
+    { id: 4, image: "images/11.jpg" },
+    { id: 5, image: "images/12.jpg" },
+    { id: 6, image: "images/13.jpg" },
+    { id: 7, image: "images/14.jpg" },
+    { id: 8, image: "images/15.jpg" },
 ];
