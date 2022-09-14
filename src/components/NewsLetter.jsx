@@ -40,12 +40,12 @@ const Input = styled.input`
 const Button = styled.button`
     flex: 1;
     border: none;
-    background-color: teal;
+    background-color: rgb(0, 128, 128);
     color: white;
     cursor: pointer;
 
     &:active {
-        background-color: #008080c2;
+        background-color: rgba(0, 128, 128, 0.7);
     }
 `;
 

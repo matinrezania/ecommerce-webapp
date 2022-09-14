@@ -38,6 +38,11 @@ const Button = styled.button`
     color: grey;
     cursor: pointer;
     font-weight: 600;
+
+    &:active {
+        background-color: lightgray;
+        color: white;
+    }
 `;
 
 const CategoryItem = ({ item }) => {

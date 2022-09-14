@@ -81,6 +81,12 @@ const Button = styled.button`
     padding: 10px;
     background-color: transparent;
     cursor: pointer;
+
+    &:active {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: rgba(0, 0, 0, 0.9);
+        border-color: rgba(0, 0, 0, 0.9);
+    }
 `;
 
 const Slider = () => {
