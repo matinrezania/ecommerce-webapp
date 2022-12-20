@@ -9,7 +9,7 @@ const Container = styled.div`
             rgba(255, 255, 255, 0.5),
             rgba(255, 255, 255, 0.5)
         ),
-        url("images/Register.jpg") center;
+        url("https://i.ibb.co/r37yYST/Register.jpg") center;
     background-size: cover;
     display: flex;
     align-items: center;

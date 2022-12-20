@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Badge from "@mui/material/Badge";
 import { mobile } from "../responsive";
+import LinkWrapper from "./LinkWrapper";
 
 const Container = styled.div`
     height: 60px;
@@ -51,6 +52,7 @@ const Center = styled.div`
 const Logo = styled.h1`
     margin: 0;
     font-weight: bold;
+    display: inline;
     ${mobile({ fontSize: "24px" })}
 `;
 const Right = styled.div`
@@ -81,7 +83,9 @@ const Navbar = () => {
                     </SearchContainer>
                 </Left>
                 <Center>
-                    <Logo>OSHA.</Logo>
+                    <LinkWrapper to="/">
+                        <Logo>OSHA.</Logo>
+                    </LinkWrapper>
                 </Center>
                 <Right>
                     <MenuItem> Register</MenuItem>

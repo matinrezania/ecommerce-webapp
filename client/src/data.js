@@ -1,61 +1,68 @@
 export const sliderItems = [
     {
         id: 1,
-        image: "images/1.jpg",
+        image: "https://i.ibb.co/Qrjz0ns/mark-adriane-V7-IJzp-El-Qc-unsplash.jpg",
         title: "SUMMER SALE",
         desc: `Lorem, ipsum dolor sit amet consectetur
 adipisicing elit. Et tempore laudantium porro,
 alias esse dicta fuga modi autem aliquid quis
 consectetur culpa eaque beatae iste, aut qui
 maiores assumenda libero!`,
-        bg: "D3AC9B",
+        bg: "d5e9ed",
     },
     {
         id: 2,
-        image: "images/2.jpg",
+        image: "https://i.ibb.co/27ZSs4j/bin-thi-u-JB173-YX-jus-unsplash.jpg",
         title: "RECENT SALE",
         desc: `Lorem, ipsum dolor sit amet consectetur
 adipisicing elit. Et tempore laudantium porro,
 alias esse dicta fuga modi autem aliquid quis
 consectetur culpa eaque beatae iste, aut qui
 maiores assumenda libero!`,
-        bg: "bc6e76",
+        bg: "fff8ef",
     },
     {
         id: 3,
-        image: "images/3.jpg",
+        image: "https://i.ibb.co/vJkRmvh/dollar-gill-amd3m-D6k-KKg-unsplash.jpg",
         title: "SEASONAL SALE",
         desc: `Lorem, ipsum dolor sit amet consectetur
 adipisicing elit. Et tempore laudantium porro,
 alias esse dicta fuga modi autem aliquid quis
 consectetur culpa eaque beatae iste, aut qui
 maiores assumenda libero!`,
-        bg: "A8A8A8",
+        bg: "d3cbc2",
     },
     {
         id: 4,
-        image: "images/4.jpg",
+        image: "https://i.ibb.co/CWxNPYM/freestocks-8h-As-Le-E6-Fbo-unsplash.jpg",
         title: "WINTER SALE",
         desc: `Lorem, ipsum dolor sit amet consectetur
 adipisicing elit. Et tempore laudantium porro,
 alias esse dicta fuga modi autem aliquid quis
 consectetur culpa eaque beatae iste, aut qui
 maiores assumenda libero!`,
-        bg: "FEF9F7",
+        bg: "d3cdd8",
     },
 ];
 
 export const categories = [
-    { id: 1, image: "images/5.jpg", title: "SHOES" },
+    {
+        id: 1,
+        image: "https://i.ibb.co/pKG5Qx7/shoe.jpg",
+        title: "SHOES",
+        category: "shoe",
+    },
     {
         id: 2,
-        image: "images/6.jpg",
+        image: "https://i.ibb.co/XCjMQmC/coat.jpg",
         title: "LEATHER COAT",
+        category: "coat",
     },
     {
         id: 3,
-        image: "images/7.jpg",
+        image: "https://i.ibb.co/c2Dx2m6/bags-and-stuff.jpg",
         title: "BAGS AND STUFF!",
+        category: "bag",
     },
 ];
 
