@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import { mobile } from "../responsive";
+import { useLocation } from "react-router-dom";
+import { publicRequest } from "../requestMethods";
 
 const Container = styled.div``;
 
@@ -71,6 +73,7 @@ const FilterColor = styled.div`
     background-color: ${(props) => props.color};
     margin: 0 5px;
     cursor: pointer;
+    box-shadow: 0px 0px 5px grey;
 `;
 
 const FilterSize = styled.select`
@@ -118,47 +121,77 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
+    const [product, setProduct] = useState({});
+    const [quantity, setQuantity] = useState(1);
+    const [color, setColor] = useState("");
+    const [size, setSize] = useState("");
+
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await publicRequest.get("products/find/" + id);
+                setProduct(res.data);
+            } catch (err) {
+                console.log("ERROR:" + err);
+            }
+        };
+        getProduct();
+    });
+
+    const handleQuantity = (type) => {
+        if (type === "dec") quantity > 1 && setQuantity(quantity - 1);
+        else setQuantity(quantity + 1);
+    };
+
     return (
         <Container>
             <Announcement />
             <Navbar />
             <Wrapper>
                 <ImageContainer>
-                    <Image src="images/2.jpg" />
+                    <Image src={product.image} />
                 </ImageContainer>
                 <InfoContainer>
-                    <Title>Leather Coat</Title>
-                    <Desc>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Laborum accusantium ad, distinctio rerum, veniam
-                        qui magnam nisi perspiciatis ducimus dolores voluptas
-                        sit itaque deleniti dolor sequi, quod id pariatur
-                        labore!
-                    </Desc>
-                    <Price>$20</Price>
+                    <Title>{product.title}</Title>
+                    <Desc>{product.desc}</Desc>
+                    <Price>$ {product.price}</Price>
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
-                            <FilterColor color="black" />
-                            <FilterColor color="darkblue" />
-                            <FilterColor color="grey" />
+                            {product.color?.map((color) => (
+                                <FilterColor
+                                    color={color}
+                                    key={color}
+                                    onClick={() => setColor(color)}
+                                />
+                            ))}
                         </Filter>
                         <Filter>
                             <FilterTitle>Size</FilterTitle>
-                            <FilterSize>
-                                <FilterSizeOption>XS</FilterSizeOption>
-                                <FilterSizeOption>S</FilterSizeOption>
-                                <FilterSizeOption>M</FilterSizeOption>
-                                <FilterSizeOption>L</FilterSizeOption>
-                                <FilterSizeOption>Xl</FilterSizeOption>
+                            <FilterSize
+                                onChange={(e) => setSize(e.target.value)}
+                            >
+                                {product.size?.map((size) => (
+                                    <FilterSizeOption key={size}>
+                                        {size}
+                                    </FilterSizeOption>
+                                ))}
                             </FilterSize>
                         </Filter>
                     </FilterContainer>
                     <AddContainer>
                         <AmountContainer>
-                            <RemoveIcon />
-                            <Amount>1</Amount>
-                            <AddIcon />
+                            <RemoveIcon
+                                onClick={() => handleQuantity("dec")}
+                                style={{ cursor: "pointer" }}
+                            />
+                            <Amount>{quantity}</Amount>
+                            <AddIcon
+                                onClick={() => handleQuantity("inc")}
+                                style={{ cursor: "pointer" }}
+                            />
                         </AmountContainer>
                         <Button>Add To Cart</Button>
                     </AddContainer>

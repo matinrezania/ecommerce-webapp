@@ -26,7 +26,7 @@ const Products = ({ category, filters, sort }) => {
                 );
                 setProducts(res.data);
             } catch (err) {
-                console.log(err);
+                console.log("ERROR:" + err);
             }
         };
         getProducts();
@@ -62,11 +62,11 @@ const Products = ({ category, filters, sort }) => {
         <Container>
             {category
                 ? filteredProducts.map((item) => (
-                      <Product item={item} key={item.id} />
+                      <Product item={item} key={item._id} />
                   ))
                 : products
                       .slice(0, 8)
-                      .map((item) => <Product item={item} key={item.id} />)}
+                      .map((item) => <Product item={item} key={item._id} />)}
         </Container>
     );
 };

@@ -4,7 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Badge from "@mui/material/Badge";
 import { mobile } from "../responsive";
-import LinkWrapper from "./LinkWrapper";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     height: 60px;
@@ -83,9 +83,12 @@ const Navbar = () => {
                     </SearchContainer>
                 </Left>
                 <Center>
-                    <LinkWrapper to="/">
+                    <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "black" }}
+                    >
                         <Logo>OSHA.</Logo>
-                    </LinkWrapper>
+                    </Link>
                 </Center>
                 <Right>
                     <MenuItem> Register</MenuItem>
