@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import { mobile } from "../responsive";
+import { useSelector } from "react-redux";
 
 const Container = styled.div``;
 
@@ -155,6 +156,7 @@ const SummaryButton = styled.button`
 `;
 
 const Cart = () => {
+    const cart = useSelector((state) => state.cart);
     return (
         <Container>
             <Announcement />
@@ -171,63 +173,47 @@ const Cart = () => {
                 </Top>
                 <Bottom>
                     <Info>
-                        <Product>
-                            <ProductDetail>
-                                <Image src="images/12.jpg" />
-                                <Details>
-                                    <ProductName>
-                                        <b>Product:</b>Leather Coat
-                                    </ProductName>
-                                    <ProductId>
-                                        <b>ID:</b>12547878332
-                                    </ProductId>
-                                    <ProductColor color={"black"} />
-                                    <ProductSize>
-                                        <b>Size:</b>37.5
-                                    </ProductSize>
-                                </Details>
-                            </ProductDetail>
-                            <PriceDetail>
-                                <ProductAmountContainer>
-                                    <AddIcon />
-                                    <ProductAmount>2</ProductAmount>
-                                    <RemoveIcon />
-                                </ProductAmountContainer>
-                                <ProductPrice>$30</ProductPrice>
-                            </PriceDetail>
-                        </Product>
+                        {cart.products.map((product) => (
+                            <Product>
+                                <ProductDetail>
+                                    <Image src={product.image} />
+                                    <Details>
+                                        <ProductName>
+                                            <b>Product:</b>
+                                            {product.title}
+                                        </ProductName>
+                                        <ProductId>
+                                            <b>ID:</b>
+                                            {product._id}
+                                        </ProductId>
+                                        <ProductColor color={product.color} />
+                                        <ProductSize>
+                                            <b>Size:</b>
+                                            {product.size}
+                                        </ProductSize>
+                                    </Details>
+                                </ProductDetail>
+                                <PriceDetail>
+                                    <ProductAmountContainer>
+                                        <AddIcon />
+                                        <ProductAmount>
+                                            {product.quantity}
+                                        </ProductAmount>
+                                        <RemoveIcon />
+                                    </ProductAmountContainer>
+                                    <ProductPrice>
+                                        ${product.price * product.quantity}
+                                    </ProductPrice>
+                                </PriceDetail>
+                            </Product>
+                        ))}
                         <Hr />
-                        <Product>
-                            <ProductDetail>
-                                <Image src="images/14.jpg" />
-                                <Details>
-                                    <ProductName>
-                                        <b>Product:</b>T-shirt
-                                    </ProductName>
-                                    <ProductId>
-                                        <b>ID:</b>12547878332
-                                    </ProductId>
-                                    <ProductColor color={"black"} />
-                                    <ProductSize>
-                                        <b>Size:</b>M
-                                    </ProductSize>
-                                </Details>
-                            </ProductDetail>
-                            <PriceDetail>
-                                <ProductAmountContainer>
-                                    <AddIcon />
-                                    <ProductAmount>1</ProductAmount>
-                                    <RemoveIcon />
-                                </ProductAmountContainer>
-                                <ProductPrice>$64</ProductPrice>
-                            </PriceDetail>
-                        </Product>
                     </Info>
                     <Summary>
                         <SummaryTitle>Order Summary</SummaryTitle>
                         <SummaryItem>
                             <SummaryItemText>Subtotal</SummaryItemText>
-                            <SummaryItemPrice>$80</SummaryItemPrice>
+                            <SummaryItemPrice>${cart.total}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>
@@ -241,7 +227,7 @@ const Cart = () => {
                         </SummaryItem>
                         <SummaryItem type="total">
                             <SummaryItemText>Total</SummaryItemText>
-                            <SummaryItemPrice>$80</SummaryItemPrice>
+                            <SummaryItemPrice>${cart.total}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryButton>Checkout Now</SummaryButton>
                     </Summary>

@@ -5,6 +5,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Badge from "@mui/material/Badge";
 import { mobile } from "../responsive";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
     height: 60px;
@@ -70,6 +71,8 @@ const MenuItem = styled.div`
     ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 const Navbar = () => {
+    const quantity = useSelector((state) => state.cart.quantity);
+    console.log(quantity);
     return (
         <Container>
             <Wrapper>
@@ -91,13 +94,28 @@ const Navbar = () => {
                     </Link>
                 </Center>
                 <Right>
-                    <MenuItem> Register</MenuItem>
-                    <MenuItem> Sign In</MenuItem>
-                    <MenuItem>
-                        <Badge badgeContent={4} color="primary">
-                            <ShoppingCartOutlinedIcon />
-                        </Badge>
-                    </MenuItem>
+                    <Link
+                        to="/auth/register"
+                        style={{ textDecoration: "none", color: "black" }}
+                    >
+                        <MenuItem> Register</MenuItem>
+                    </Link>
+                    <Link
+                        to="/auth/login"
+                        style={{ textDecoration: "none", color: "black" }}
+                    >
+                        <MenuItem> Sign In</MenuItem>
+                    </Link>
+                    <Link
+                        to="/cart"
+                        style={{ textDecoration: "none", color: "black" }}
+                    >
+                        <MenuItem>
+                            <Badge badgeContent={quantity} color="primary">
+                                <ShoppingCartOutlinedIcon />
+                            </Badge>
+                        </MenuItem>
+                    </Link>
                 </Right>
             </Wrapper>
         </Container>
